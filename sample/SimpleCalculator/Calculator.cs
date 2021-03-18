@@ -33,17 +33,16 @@ namespace SimpleCalculator
 
             var operation = input[fn];
 
-            foreach (var i in _operations)
+            foreach (var operate in _operations)
             {
-                if (i.Metadata.Symbol.Equals(operation))
-                    return i.Value.Operate(left, right).ToString(CultureInfo.InvariantCulture);
+                if (operate.Metadata.Symbol.Equals(operation))
+                    return operate.Value.Operate(left, right).ToString(CultureInfo.InvariantCulture);
             }
             return "Operation Not Found!";
         }
 
         private int FindFirstNonDigit(string s)
         {
-
             for (var i = 0; i < s.Length; i++)
             {
                 if (!(char.IsDigit(s[i]))) return i;

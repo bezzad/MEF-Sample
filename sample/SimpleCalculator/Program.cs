@@ -6,12 +6,13 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            var provider = new ExtensibilityProvider(); //Composition is performed in the constructor
+            // Composition is performed in the constructor
+            var provider = new ExtensibilityProvider(Environment.CurrentDirectory + "\\Extensions"); 
             Console.WriteLine("Enter Command:");
             while (true)
             {
-                var s = Console.ReadLine();
-                Console.WriteLine(provider.Calculator.Calculate(s));
+                var input = Console.ReadLine();
+                Console.WriteLine(provider.Calculator?.Calculate(input));
             }
         }
     }
