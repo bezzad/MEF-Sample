@@ -24,7 +24,7 @@ namespace SimpleCalculator
             {
                 //separate out the operands
                 left = int.Parse(input.Substring(0, fn));
-                right = int.Parse(input.Substring(fn + 1));
+                int.TryParse(input.Substring(fn + 1), out right);
             }
             catch
             {

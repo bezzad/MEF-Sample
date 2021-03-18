@@ -3,7 +3,6 @@ using SimpleCalculator.Extension;
 
 namespace ExtendedOperations
 {
-
     [Export(typeof(IOperation))]
     [ExportMetadata("Symbol", '%')]
     public class Mod : IOperation
