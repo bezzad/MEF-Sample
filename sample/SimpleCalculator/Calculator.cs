@@ -10,7 +10,7 @@ namespace SimpleCalculator
     class Calculator : ICalculator
     {
         [ImportMany]
-        IEnumerable<Lazy<IOperation, IOperationData>> operations;
+        IEnumerable<Lazy<IOperation, IOperationData>> _operations;
 
         public string Calculate(string input)
         {
@@ -33,7 +33,7 @@ namespace SimpleCalculator
 
             var operation = input[fn];
 
-            foreach (var i in operations)
+            foreach (var i in _operations)
             {
                 if (i.Metadata.Symbol.Equals(operation))
                     return i.Value.Operate(left, right).ToString(CultureInfo.InvariantCulture);
@@ -50,7 +50,5 @@ namespace SimpleCalculator
             }
             return -1;
         }
-
-
     }
 }
